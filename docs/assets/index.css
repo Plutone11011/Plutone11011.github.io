@@ -1,0 +1,11 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(148, 228, 248);
+}
