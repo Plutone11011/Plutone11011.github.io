@@ -31,14 +31,16 @@ body {
 
 .intro-section {
   display: flex;
+  column-gap: 10%;
 }
 
 .intro-content {
+  flex-basis: fit-content;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 20%;
 }
 
 .intro-presentation {
@@ -47,8 +49,29 @@ body {
 
 .intro-text {
   margin-top: 0;
-  flex-grow: 1;
+  flex-grow: 2;
   margin-left: 20px;
+  font-size: larger;
+}
+
+.contacts {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 2fr 2fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.contacts h2 {
+  grid-column: 1 / 3;
+  justify-self: start;
+  margin-left: 5%;
+}
+
+.contacts img {
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 /*Links*/
