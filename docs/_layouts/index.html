@@ -6,34 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lorenzo Borelli</title>
     <link href="assets/index.css" rel="stylesheet" />
+    <link href="assets/tooltip.css" rel="stylesheet" />
   </head>
   <body>
     <header class="main-header">
       <nav class="navigation-bar">
         <ul class="link-list">
-          <li class="link-list-item"><a>ARTICLES</a></li>
-          <li class="link-list-item"><a>PROJECTS</a></li>
+          <div class="link-list-icons">
+            <li class="link-list-item tooltip">
+              <span class="tooltiptext">My Github</span>
+              <a href="https://github.com/Plutone11011"
+                ><img src="assets/github32.png" />
+              </a>
+            </li>
+            <li class="link-list-item tooltip">
+              <span class="tooltiptext">My Linkedin</span>
+              <a href="https://www.linkedin.com/in/lorenzo-borelli-71355a19b/"
+                ><img src="assets/linkedin32.png" />
+              </a>
+            </li>
+          </div>
+          <div class="link-list-texts">
+            <li class="link-list-item tooltip">
+              <span class="tooltiptext">My articles</span><a>ARTICLES</a>
+            </li>
+            <li class="link-list-item tooltip">
+              <span class="tooltiptext">My projects</span><a>PROJECTS</a>
+            </li>
+          </div>
         </ul>
       </nav>
     </header>
 
     <section class="intro-section">
-      <article class="contacts">
-        <h2>Info</h2>
-        <img src="assets/GitHub-Mark-32px.png" />
-        <p><a href="https://github.com/Plutone11011">My GitHub </a></p>
-
-        <img src="assets/linkedin-logo.png" />
-        <p>
-          <a href="https://www.linkedin.com/in/lorenzo-borelli-71355a19b/"
-            >My Linkedin
-          </a>
-        </p>
-      </article>
       <div class="intro-content">
-        <h2 class="intro-heading">About me</h2>
+        <h1 class="intro-heading">About me</h1>
         <div class="intro-presentation">
-          <img class="profile-img" src="assets/propic.jpg" />
           <p class="intro-text">
             Hi, I'm Lorenzo, a junior web developer in Bologna working at
             <a href="https://gecosistema.com/" class="out-link">Gecosistema</a>,
@@ -42,8 +50,14 @@
             articles about topics I'm interested in.
           </p>
         </div>
+        <div class="intro-img">
+          <img class="profile-img" src="assets/propic.jpg" />
+        </div>
       </div>
-      <div class="board"></div>
+    </section>
+
+    <section class="posts">
+      <h2 class="posts-heading">Latest Posts</h2>
     </section>
 
     <footer class="main-footer">Made by Lorenzo</footer>
