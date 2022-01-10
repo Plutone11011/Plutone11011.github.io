@@ -2,6 +2,8 @@
 layout: post
 title: "Seq2seq: an overview"
 date: 2022-01-10 16:43:00 +0100
+categories: nlp
+#permalink: /seq2seq
 #categories: encoder-decoder keras
 #permalink: CoRec
 ---
