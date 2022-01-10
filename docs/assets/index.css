@@ -5,6 +5,16 @@ body {
   background-color: rgb(54, 52, 52);
 }
 
+h1 {
+  font-size: 2em;
+  color: rgb(101, 101, 253);
+}
+
+h2 {
+  font-size: 1.5em;
+  color: rgb(101, 101, 253);
+}
+
 /*Header styles*/
 .main-header {
   /*display: flex;
@@ -116,15 +126,24 @@ a:hover {
 
 /* posts */
 
-.posts {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 3fr;
-  justify-items: center;
-  align-items: center;
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .posts-heading {
-  grid-column: 2 / 3;
   justify-self: start;
+}
+
+.posts {
+  list-style: none;
+}
+
+.posts li {
+  font-size: large;
+  line-height: 2em;
 }

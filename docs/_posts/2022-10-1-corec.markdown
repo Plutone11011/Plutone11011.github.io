@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Seq2seq: an overview"
+date: 2022-01-10 16:43:00 +0100
+#categories: encoder-decoder keras
+#permalink: CoRec
+---
+
+Sequence to sequence is a model used to solve tasks concerning the prediction of **sequences**, starting from input sequences. It encompasses a set of different NLP tasks, from **question answering** to **speech recognition** and **machine translation**.

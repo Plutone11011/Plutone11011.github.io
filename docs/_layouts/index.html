@@ -26,14 +26,14 @@
               </a>
             </li>
           </div>
-          <div class="link-list-texts">
+          <!--<div class="link-list-texts">
             <li class="link-list-item tooltip">
               <span class="tooltiptext">My articles</span><a>ARTICLES</a>
             </li>
             <li class="link-list-item tooltip">
               <span class="tooltiptext">My projects</span><a>PROJECTS</a>
             </li>
-          </div>
+          </div>-->
         </ul>
       </nav>
     </header>
@@ -43,7 +43,7 @@
         <h1 class="intro-heading">About me</h1>
         <div class="intro-presentation">
           <p class="intro-text">
-            Hi, I'm Lorenzo, a junior web developer in Bologna working at
+            Hi, I'm Lorenzo, a junior developer in Bologna working at
             <a href="https://gecosistema.com/" class="out-link">Gecosistema</a>,
             and an Artificial Intelligence student at Bologna's university. This
             website is a blog where I share personal projects I'm working on and
@@ -56,8 +56,16 @@
       </div>
     </section>
 
-    <section class="posts">
-      <h2 class="posts-heading">Latest Posts</h2>
+    <section class="posts-section">
+      <h1 class="posts-heading">Latest Posts</h1>
+
+      <ul class="posts">
+        {% for post in site.posts %}
+        <li>
+          <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
     </section>
 
     <footer class="main-footer">Made by Lorenzo</footer>
