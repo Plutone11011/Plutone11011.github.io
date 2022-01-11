@@ -29,3 +29,8 @@ footer {
   color: azure !important;
   background-color: rgb(27, 27, 27);
 }
+/*patch to hide redundant text in template*/
+.page-link,
+.footer-heading {
+  visibility: hidden;
+}

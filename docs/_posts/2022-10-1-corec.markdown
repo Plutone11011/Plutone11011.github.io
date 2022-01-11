@@ -8,4 +8,47 @@ categories: nlp
 #permalink: CoRec
 ---
 
-Sequence to sequence is a model used to solve tasks concerning the prediction of **sequences**, starting from input sequences. It encompasses a set of different NLP tasks, from **question answering** to **speech recognition** and **machine translation**.
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+# Introduction
+
+Sequence to sequence is an **encoder-decoder** model used to solve tasks concerning the prediction of **sequences**, starting from input sequences. It encompasses a set of different NLP tasks, from **question answering** to **speech recognition** and **machine translation**.
+
+# Machine translation
+
+Machine translation is a task that involves translating a source language into a target language, be it natural or artificial. More formally, given an input sequence $$x_1, x_2, ..., x_n$$, and an output sequence $$y_1, y_2, ..., y_m$$, the aim is to maximize the probability that the target sequence is the best translation for the source sequence, that is to find the parameters $$\theta$$ of the conditional probability of the target sequence given the source, $$p(y\\|x,\theta)$$.
+
+# Encoder-Decoder model
+
+![Encoder-Decoder RNN](/assets/enc_dec_simple_rnn-min.png){:class="img-responsive"}
+
+The encoder-decoder model involves two actors:
+
+- **Encoder**: reads the input sequence, produces a representation which is given as input to the decoder. The representation could be the last state of the RNN.
+- **Decoder**: reads the source representation to output the source translation.
+
+Usually, a more performant variation of vanilla RNN is preferred, like LSTM or GRU.
+
+# Training and inference
+
+At each step of the training, the **cross-entropy** loss between the predicted and target ditributions for token $$y_t$$ is computed as $$-log(p(y_t\\|y_{<t}, x))$$, so for the whole training example, the loss to minimize would be
+
+$$-\ \sum_{t=1}^{n} log(p(y_t\\|y_{<t}, x)) $$
+
+At inference time instead, there are different approaches regarding the choice of best token for translation:
+
+- **Greedy**: pick at every step the token with highest probability. Inefficient and not always the optimal choice globally.
+- **Beam search**: generate at each step N hypothesis, with N being the beam size, a critical parameter. Eventually, out of all the hypothesis pick the one with highest probability.
+
+# Attention
+
+Attention is a mechanism that improves seq2seq by observing that the fixed size representation of the encoder output (last state) does not reliably capture the whole meaning of the sentence, moreover the decoder, for an accurate translation, might want to focus on different parts of the input representation at each step, depending on the current target token.
+
+![Attention](/assets/attention-min.png){:class="img-responsive"}
+
+- At each step, the current hidden state $$h_t$$ is used together with all encoder states $$e_1,e_2, ... e_n$$ to compute a scoring function, which is usually the **dot product**
+- These $$n$$ scores are then used to compute **attention weights** with softmax.
+- The attention output is the result of a weighted sum of the attention weights and encoder states, which is then passed to the decoder again.
+
+The attention output allows the decoder to account for the most relevant source tokens for the current step, as well as avoid the packed final state representation of the vanilla seq2seq architecture.
