@@ -22,6 +22,7 @@ Machine translation is a task that involves translating a source language into a
 # Encoder-Decoder model
 
 ![Encoder-Decoder RNN](/assets/enc_dec_simple_rnn-min.png){:class="img-responsive"}
+*See https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html for image*
 
 The encoder-decoder model involves two actors:
 
@@ -46,9 +47,14 @@ At inference time instead, there are different approaches regarding the choice o
 Attention is a mechanism that improves seq2seq by observing that the fixed size representation of the encoder output (last state) does not reliably capture the whole meaning of the sentence, moreover the decoder, for an accurate translation, might want to focus on different parts of the input representation at each step, depending on the current target token.
 
 ![Attention](/assets/attention-min.png){:class="img-responsive"}
+*See https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html for image*
 
 - At each step, the current hidden state $$h_t$$ is used together with all encoder states $$e_1,e_2, ... e_n$$ to compute a scoring function, which is usually the **dot product**
 - These $$n$$ scores are then used to compute **attention weights** with softmax.
 - The attention output is the result of a weighted sum of the attention weights and encoder states, which is then passed to the decoder again.
 
 The attention output allows the decoder to account for the most relevant source tokens for the current step, as well as avoid the packed final state representation of the vanilla seq2seq architecture.
+
+# Conclusion
+
+seq2seq is a model with a lot of applications, though state-of-the-art machine translation applications implement **Transformers**, which are faster and more efficient than the discussed encoder-decoder models.
